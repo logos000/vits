@@ -1,0 +1,5 @@
+
+# 是否默认开启语音功能，默认为False
+voice_switch: False
+# 默认回答语言， 默认为中文
+language: "zh"
