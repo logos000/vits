@@ -106,6 +106,4 @@ class VoicePlugin(BasePlugin):
                 #os.remove(result)
             #print(121,result)
             
-    def __init__(self, host: APIHost):
-        pass
 
