@@ -3,6 +3,7 @@ import json
 import os
 import yaml
 import time
+import uuid
 from pathlib import Path
 from graiax import silkcoder
 
@@ -29,7 +30,8 @@ def generate_audio(text, language):
     # 提取文件名，.wav字符前的八个字符为文件名
     #file_name = audio_url.split('/')[-1].split('.')[0][:8]
     # 拼接文件路径
-    save_path = os.path.join(base_path, 'output.wav')
+    unique_id = uuid.uuid4()
+    save_path = os.path.join(base_path, 'output'+str(unique_id)+'.wav')
     #if not os.path.exists(save_path):
     #    os.makedirs(save_path)
     #print(save_path)
@@ -38,7 +40,7 @@ def generate_audio(text, language):
         # 将响应内容写入文件
         with open(save_path, 'wb') as file:
             file.write(response.content)
-        print("音频文件已成功保存为 'output.wav'")
+        print("音频文件已成功保存为 'output'"+str(unique_id)+".wav")
     else:
         print(f"请求失败，状态码: {response.status_code}")
         #if download_audio(audio_url, save_path):
